@@ -4,6 +4,10 @@ const input = document.getElementById('input');
 const box = document.querySelector('#box');
 
  const add = ()=> {
+    if (input.value === ''){
+        alert('please enter an item')
+    }
+    else{
     let li = document.createElement("li");
     li.innerHTML = input.value;
     list.appendChild(li);
@@ -12,6 +16,7 @@ const box = document.querySelector('#box');
     span.innerHTML = '&#10005';
     li.appendChild(span);
     save();
+    }
 }
 
 const save = ()=>{
@@ -38,6 +43,13 @@ const clear = ()=>{
     localStorage.clear('toDo');
 }
 
+input.addEventListener('keydown', (event)=>{
+    if (event.key === 'Enter'){
+        add();
+    }
+})
+
 display();
+
 
 
